@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "382246955965",
+    "project_id": "alishameditationapp",
+    "storage_bucket": "alishameditationapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:382246955965:android:090972ed0ddb1ce7d4c0d4",
+        "android_client_info": {
+          "package_name": "com.example.alishameditationapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "382246955965-696krofkec31qsmtns21n6epq4d3ce7q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.alishameditationapp",
+            "certificate_hash": "a09a6b9efd123fe72755a4f280d7032bd1850a7a"
+          }
+        },
+        {
+          "client_id": "382246955965-hma99pudc4lfuh7k5pobe9gvoliuf9kf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAz7qntk26pAR1uJrwWQjYt6zd2rel8-Hw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "382246955965-hma99pudc4lfuh7k5pobe9gvoliuf9kf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

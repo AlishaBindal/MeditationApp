@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/meditate"
+        android:icon="@drawable/ic_meditate"
+        android:title="@string/text_meditate" />
+    <item
+        android:id="@+id/calm"
+        android:icon="@drawable/ic_calm"
+        android:title="@string/text_calm" />
+    <item
+        android:id="@+id/destress"
+        android:icon="@drawable/ic_lightning"
+        android:title="@string/text_destress" />
+    <item
+        android:id="@+id/relax"
+        android:icon="@drawable/ic_relax"
+        android:title="@string/text_relax" />
+</menu>

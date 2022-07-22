@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Alisha Meditation App</string>
+
+    <string name="text_meditate">Meditate</string>
+    <string name="text_calm">Calm</string>
+    <string name="text_destress">Destress</string>
+    <string name="text_relax">Relax</string>
+
+</resources>
