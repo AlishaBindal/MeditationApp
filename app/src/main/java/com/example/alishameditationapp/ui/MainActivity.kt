@@ -12,13 +12,13 @@ import com.example.alishameditationapp.data.model.*
 import com.example.alishameditationapp.databinding.ActivityMainBinding
 import com.firebase.ui.auth.AuthUI
 import com.google.android.material.navigation.NavigationBarView
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
+
 
 class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener {
-
+    private var database: FirebaseDatabase? = null
+    private var myRef: DatabaseReference? = null
+    private var eventListener: ValueEventListener? = null
     private lateinit var binding: ActivityMainBinding
     private var meditation: Meditation? = null
 
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        database = FirebaseDatabase.getInstance()
         getDataFromFirebaseDatabase()
         binding.bottomNavigation.setOnItemSelectedListener(this)
 
@@ -92,12 +92,16 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
 
     private fun getDataFromFirebaseDatabase(): Meditation? {
         binding.progressBar.visibility = View.VISIBLE
-        val database = FirebaseDatabase.getInstance()
-        val myRef = database.getReference("Collections")
-        myRef.addValueEventListener(object : ValueEventListener {
+        myRef = database?.getReference("Collections")
+        eventListener = getEventListener()
+        myRef?.addValueEventListener(eventListener!!)
+
+        return meditation
+    }
+
+    private fun getEventListener(): ValueEventListener {
+        val valueEventListener: ValueEventListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
                 if (dataSnapshot.exists()) {
                     Log.d("TAG", "Value is: $dataSnapshot")
                     meditation = dataSnapshot.getValue(Meditation::class.java)
@@ -112,14 +116,12 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
                 }
             }
 
-            override fun onCancelled(error: DatabaseError) {
-                Log.w("TAG", "Failed to read value.", error.toException())
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.w("TAG", "Failed to read value.", databaseError.toException())
             }
-        })
-
-        return meditation
+        }
+        return valueEventListener
     }
-
 
     private fun setDataInFirebaseDatabase() {
         val meditationList = ArrayList<MeditationData>()
@@ -178,6 +180,13 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
         myRef.child("Collections").setValue(meditation)
 
         getDataFromFirebaseDatabase()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (eventListener != null) {
+            myRef?.removeEventListener(eventListener!!)
+        }
     }
 
 }
