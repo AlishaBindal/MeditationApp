@@ -39,7 +39,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/dimen_10dp"
             android:gravity="center"
-            android:text="Feel less stressed and more mindful with meditation"
+            android:text="@string/text_feel_less_stressed_and_more_mindful_with_meditation"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/font_20sp" />
 
@@ -52,7 +52,7 @@
             android:layout_marginTop="@dimen/dimen_10dp"
             android:background="@drawable/button_round_corners"
             android:gravity="center"
-            android:text="Get Started"
+            android:text="@string/text_get_started"
             android:textColor="@color/white"
             android:textSize="@dimen/font_16sp" />
     </LinearLayout>

@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "382246955965",
+    "firebase_url": "https://alishameditationapp-default-rtdb.firebaseio.com",
     "project_id": "alishameditationapp",
     "storage_bucket": "alishameditationapp.appspot.com"
   },
@@ -19,6 +20,14 @@
           "android_info": {
             "package_name": "com.example.alishameditationapp",
             "certificate_hash": "a09a6b9efd123fe72755a4f280d7032bd1850a7a"
+          }
+        },
+        {
+          "client_id": "382246955965-frbeag1vdsju2f7f8g1aibsfhc4icgc1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.alishameditationapp",
+            "certificate_hash": "dbc1a90e1547806a85583e5d677f37b178ea1b14"
           }
         },
         {
